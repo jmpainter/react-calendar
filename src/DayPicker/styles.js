@@ -15,7 +15,7 @@ export const CalendarMonth = styled.table`
   th,
   td,
   tr {
-    padding: 5px;
+    padding: 1em;
   }
   th {
     padding: 1em;

@@ -1,4 +1,5 @@
 import React from "react";
+import WeekDisplay from "../WeekDisplay/WeekDisplay";
 import * as styled from "./styles";
 
 export default function DayPicker({ month, year }) {
@@ -30,7 +31,11 @@ export default function DayPicker({ month, year }) {
   }
   console.log(days);
   const weeks = [];
-  // for(let i = )
+  for (let i = 0; i <= days.length - 7; i += 7) {
+    weeks.push(days.slice(i, i + 7));
+  }
+
+  console.log(weeks);
 
   return (
     <styled.CalendarMonth>
@@ -46,9 +51,9 @@ export default function DayPicker({ month, year }) {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td></td>
-        </tr>
+        {weeks.map(week => (
+          <WeekDisplay week={week} />
+        ))}
       </tbody>
     </styled.CalendarMonth>
   );
