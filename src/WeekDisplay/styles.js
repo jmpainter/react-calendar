@@ -14,5 +14,6 @@ export const TableData = styled.td`
     active &&
     `
     color: black;
+    cursor: pointer;
   `}
 `;

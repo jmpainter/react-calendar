@@ -1,7 +1,7 @@
 import React from "react";
 import * as styles from "./styles";
 
-export default function WeekDisplay({ week, month, year }) {
+export default function WeekDisplay({ week, month, year, onClick }) {
   const today = new Date();
   return (
     <tr>
@@ -16,7 +16,12 @@ export default function WeekDisplay({ week, month, year }) {
           isToday = true;
         }
         return (
-          <styles.TableData key={index} today={isToday} active={day.clickable}>
+          <styles.TableData
+            key={index}
+            today={isToday}
+            active={day.clickable}
+            onClick={day.clickable ? event => onClick(event) : null}
+          >
             {day.day}
           </styles.TableData>
         );

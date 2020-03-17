@@ -2,7 +2,7 @@ import React from "react";
 import WeekDisplay from "../WeekDisplay/WeekDisplay";
 import * as styled from "./styles";
 
-export default function DayPicker({ month, year }) {
+export default function DayPicker({ month, year, onClick }) {
   const firstDay = new Date(year, month);
   const startIndex = firstDay.getDay();
 
@@ -46,7 +46,13 @@ export default function DayPicker({ month, year }) {
       </thead>
       <tbody>
         {weeks.map((week, index) => (
-          <WeekDisplay key={index} month={month} year={year} week={week} />
+          <WeekDisplay
+            key={index}
+            month={month}
+            year={year}
+            week={week}
+            onClick={onClick}
+          />
         ))}
       </tbody>
     </styled.CalendarMonth>

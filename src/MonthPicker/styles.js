@@ -16,6 +16,8 @@ export const Arrow = styled.a`
   font-size: 3em;
   color: white;
   display: inline;
+  position: relative;
+  top: 0.2em;
 `;
 
 export const Picker = styled.div`
