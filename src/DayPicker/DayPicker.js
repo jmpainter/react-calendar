@@ -5,9 +5,6 @@ import * as styled from "./styles";
 export default function DayPicker({ month, year }) {
   const firstDay = new Date(year, month);
   const startIndex = firstDay.getDay();
-  console.log(year);
-  console.log(month);
-  console.log(firstDay);
 
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const daysInLastMonth = new Date(year, month, 0).getDate();
@@ -29,13 +26,10 @@ export default function DayPicker({ month, year }) {
   for (let i = startIndex + daysInMonth, j = 1; i < days.length; i++, j++) {
     days[i] = { day: j, clickable: false };
   }
-  console.log(days);
   const weeks = [];
   for (let i = 0; i <= days.length - 7; i += 7) {
     weeks.push(days.slice(i, i + 7));
   }
-
-  console.log(weeks);
 
   return (
     <styled.CalendarMonth>
@@ -51,8 +45,8 @@ export default function DayPicker({ month, year }) {
         </tr>
       </thead>
       <tbody>
-        {weeks.map(week => (
-          <WeekDisplay week={week} />
+        {weeks.map((week, index) => (
+          <WeekDisplay key={index} month={month} year={year} week={week} />
         ))}
       </tbody>
     </styled.CalendarMonth>

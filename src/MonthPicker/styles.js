@@ -22,5 +22,5 @@ export const Picker = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 3em;
-  background-color: turquoise;
+  background-color: royalblue;
 `;
