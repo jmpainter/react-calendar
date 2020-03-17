@@ -3,12 +3,15 @@ import "./App.css";
 import MonthPicker from "../MonthPicker/MonthPicker";
 import DayPicker from "../DayPicker/DayPicker";
 import EventDialog from "../EventDialog/EventDialog";
+import EventDisplay from "../EventDisplay/EventDisplay";
 
 function App() {
   const [month, setMonth] = useState(getCurrentDateAndMonth()[0]);
   const [year, setYear] = useState(getCurrentDateAndMonth()[1]);
-  const [showDialog, setShowDialog] = useState(false);
-  const [xPos, setXPos] = useState(0);
+  const [day, setDay] = useState(null);
+  const [events, setEvents] = useState([]);
+  const [showDialog, setShowDialog] = useState(true);
+  const [xPos, setXPos] = useState(200);
   const [yPos, setYPos] = useState(0);
 
   function getCurrentDateAndMonth() {
@@ -36,24 +39,40 @@ function App() {
     }
   }
 
-  function handleShowDialog(event) {
-    console.log(`xpos: ${event.clientX}`);
-    console.log(`ypos: ${event.clientY}`);
-    setXPos(event.clientX);
-    setYPos(event.clientY);
+  function handleShowDialog(day, event) {
+    setDay(day);
+    setXPos(event.clientX - 115);
+    setYPos(event.clientY + 20);
 
     setShowDialog(true);
   }
 
+  function handleSubmit(hours, minutes, eventName) {
+    const eventDate = new Date();
+    eventDate.setFullYear(year);
+    eventDate.setMonth(month);
+    eventDate.setDate(day);
+    eventDate.setHours(hours);
+    eventDate.setMinutes(minutes);
+    setEvents(events => [...events, { eventDate, eventName }]);
+    setShowDialog(false);
+  }
+
   return (
     <div className="App">
-      <EventDialog showDialog={showDialog} xPos={xPos} yPos={yPos} />
+      <EventDialog
+        showDialog={showDialog}
+        xPos={xPos}
+        yPos={yPos}
+        onSubmit={handleSubmit}
+      />
       <MonthPicker
         month={month}
         year={year}
         onMonthChange={handleMonthChange}
       />
       <DayPicker month={month} year={year} onClick={handleShowDialog} />
+      <EventDisplay events={events} />
     </div>
   );
 }

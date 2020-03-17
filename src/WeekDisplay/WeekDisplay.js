@@ -20,7 +20,7 @@ export default function WeekDisplay({ week, month, year, onClick }) {
             key={index}
             today={isToday}
             active={day.clickable}
-            onClick={day.clickable ? event => onClick(event) : null}
+            onClick={day.clickable ? event => onClick(day.day, event) : null}
           >
             {day.day}
           </styles.TableData>

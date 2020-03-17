@@ -2,10 +2,12 @@ import styled from "styled-components";
 
 export const Dialog = styled.div`
   position: absolute;
-  padding: 1em;
+  padding: 10px;
+  width: 220px;
   display: none;
   background-color: royalblue;
-  border-radius: 1em;
+  border-radius: 10px;
+  margin-top: 10px;
   ${({ showDialog }) =>
     showDialog &&
     `
@@ -19,13 +21,24 @@ export const Dialog = styled.div`
     `
     top: ${yPos}px;
   `}
+  &:after {
+    content: " ";
+    position: absolute;
+    right: 110px;
+    top: -10px;
+    border-top: none;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid royalblue;
+  }
+}
 `;
 
 const FormElement = `
   display: inline-block;
   color: black;
-  margin: .4em;
-  padding: .5em;
+  margin: 5px;
+  padding: 10px;
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.25);
   border: none;
@@ -35,27 +48,30 @@ const FormElement = `
     background-color: rgba(0,0,0,0.45);
   }
   ::placeholder {
-    font-size: 1.3em;
+    font-size: 16px;
   }
   box-sizing: border-box;
 `;
 
 export const NarrowInput = styled.input`
   ${FormElement}
-  width: 10em;
+  width: 100px;
 `;
 
 export const WideInput = styled.input`
   ${FormElement}
-  width: 21em;
+  width: 210px;
 `;
 
 export const SaveButton = styled.button`
   ${FormElement}
-  margin: .5em;
-  padding: 0.5em;
-  border-radius: 0.7em;
-  width: 8em;
+  border-radius: 5px;
+  width: 80px;
   color: royalblue;
-  font-size: 0.9em;
+  font-size: 16px;
+`;
+
+export const ErrorMessage = styled.p`
+  font-size: 16px;
+  color: red;
 `;
