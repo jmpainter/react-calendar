@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Month = styled.h1`
-  font-size: 3em;
+  font-size: 2.3em;
   color: white;
   margin: 0;
 `;
 
 export const Year = styled.h2`
-  font-size: 2em;
+  font-size: 1.6em;
   color: white;
   margin: 0;
 `;
@@ -25,4 +25,5 @@ export const Picker = styled.div`
   justify-content: space-between;
   padding: 3em;
   background-color: royalblue;
+  text-align: center;
 `;

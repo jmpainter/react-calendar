@@ -16,13 +16,13 @@ export default function WeekDisplay({ week, month, year, onClick }) {
           isToday = true;
         }
         return (
-          <styles.TableData
-            key={index}
-            today={isToday}
-            active={day.clickable}
-            onClick={day.clickable ? event => onClick(day.day, event) : null}
-          >
-            {day.day}
+          <styles.TableData key={index} today={isToday}>
+            <styles.Day
+              active={day.clickable}
+              onClick={day.clickable ? event => onClick(day.day, event) : null}
+            >
+              {day.day}
+            </styles.Day>
           </styles.TableData>
         );
       })}

@@ -10,6 +10,10 @@ export const TableData = styled.td`
     border-radius: 1em;
     border: none;
   `}
+  text-align: center;
+`;
+
+export const Day = styled.span`
   ${({ active }) =>
     active &&
     `

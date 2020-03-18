@@ -53,9 +53,8 @@ function App() {
 
   function handleShowDialog(day, event) {
     setDay(day);
-    setXPos(event.clientX - 115);
+    setXPos(event.clientX - 117);
     setYPos(event.clientY + 20);
-
     setShowDialog(true);
   }
 

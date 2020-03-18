@@ -31,6 +31,7 @@ export const Dialog = styled.div`
     border-left: 10px solid transparent;
     border-bottom: 10px solid royalblue;
   }
+  text-align: center;
 }
 `;
 
