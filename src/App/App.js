@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./App.css";
 import MonthPicker from "../MonthPicker/MonthPicker";
 import DayPicker from "../DayPicker/DayPicker";
 import EventDialog from "../EventDialog/EventDialog";
@@ -9,7 +8,20 @@ function App() {
   const [month, setMonth] = useState(getCurrentDateAndMonth()[0]);
   const [year, setYear] = useState(getCurrentDateAndMonth()[1]);
   const [day, setDay] = useState(null);
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState([
+    {
+      eventDate: new Date("2020-03-27T08:30:56.906Z"),
+      eventName: "First Event"
+    },
+    {
+      eventDate: new Date("2020-03-19T19:12:32.219Z"),
+      eventName: "Some Event"
+    },
+    {
+      eventDate: new Date("2020-03-07T10:45:21.777Z"),
+      eventName: "Second Event"
+    }
+  ]);
   const [showDialog, setShowDialog] = useState(true);
   const [xPos, setXPos] = useState(200);
   const [yPos, setYPos] = useState(0);
