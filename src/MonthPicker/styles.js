@@ -18,6 +18,7 @@ export const Arrow = styled.a`
   display: inline;
   position: relative;
   top: 0.2em;
+  cursor: pointer;
 `;
 
 export const Picker = styled.div`

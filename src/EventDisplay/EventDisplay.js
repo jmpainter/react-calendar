@@ -3,7 +3,7 @@ import { getMonth } from "../utils";
 import * as styles from "./styles";
 
 export default function EventDisplay({ events }) {
-  events = events.sort((a, b) => b.eventDate - a.eventDate);
+  events = events.sort((a, b) => a.eventDate - b.eventDate);
   return (
     <div>
       <styles.EventList>
