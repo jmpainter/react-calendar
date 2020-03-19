@@ -1,6 +1,7 @@
 import React from "react";
 import * as styles from "./styles";
 import { getMonth } from "../utils";
+import PropTypes from "prop-types";
 
 export default function MonthPicker({ month, year, onMonthChange }) {
   return (
@@ -14,3 +15,9 @@ export default function MonthPicker({ month, year, onMonthChange }) {
     </styles.Picker>
   );
 }
+
+MonthPicker.propTypes = {
+  month: PropTypes.number.isRequired,
+  year: PropTypes.number.isRequired,
+  onMonthChange: PropTypes.func.isRequired
+};
