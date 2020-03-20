@@ -19,7 +19,7 @@ describe("<MonthPicker /> tests", () => {
     expect(header2.nodeName).toEqual("H2");
   });
 
-  test("calls onClick when right arrow is clicked", () => {
+  test("calls onMonthChange when right arrow is clicked", () => {
     const func = jest.fn(() => {});
     const { getByText } = render(
       <MonthPicker month={0} year={2020} onMonthChange={func} />
@@ -29,7 +29,7 @@ describe("<MonthPicker /> tests", () => {
     expect(func).toHaveBeenCalled();
   });
 
-  test("calls onClick when left arrow is clicked", () => {
+  test("calls onMonthChange when left arrow is clicked", () => {
     const func = jest.fn(() => {});
     const { getByText } = render(
       <MonthPicker month={0} year={2020} onMonthChange={func} />
