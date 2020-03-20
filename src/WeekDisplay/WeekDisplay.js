@@ -1,5 +1,6 @@
 import React from "react";
 import * as styles from "./styles";
+import PropTypes from "prop-types";
 
 export default function WeekDisplay({ week, month, year, onClick }) {
   const today = new Date();
@@ -16,7 +17,7 @@ export default function WeekDisplay({ week, month, year, onClick }) {
           isToday = true;
         }
         return (
-          <styles.TableData key={index} today={isToday}>
+          <styles.TableData key={index} today={isToday} data-testid="day">
             <styles.Day
               active={day.clickable}
               onClick={day.clickable ? event => onClick(day.day, event) : null}
@@ -29,3 +30,10 @@ export default function WeekDisplay({ week, month, year, onClick }) {
     </tr>
   );
 }
+
+WeekDisplay.proptTypes = {
+  week: PropTypes.array.isRequired,
+  month: PropTypes.number.isRequired,
+  year: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired
+};

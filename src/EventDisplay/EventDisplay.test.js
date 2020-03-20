@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import EventDisplay from "./EventDisplay";
 
 describe("<EventDisplay /> tests", () => {
@@ -9,9 +9,7 @@ describe("<EventDisplay /> tests", () => {
       { eventDate: new Date("2020-02-18T03:02:00"), eventName: "Event2" },
       { eventDate: new Date("2020-03-19T03:03:00"), eventName: "Event3" }
     ];
-    const { getByText, getAllByText, debug } = render(
-      <EventDisplay events={mockEvents} />
-    );
+    const { getByText } = render(<EventDisplay events={mockEvents} />);
 
     expect(getByText("17 January 2020 3:01 - Event1")).toBeTruthy();
     expect(getByText("18 February 2020 3:02 - Event2")).toBeTruthy();
