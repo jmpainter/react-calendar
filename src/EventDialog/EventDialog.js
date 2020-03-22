@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import * as styled from "./styles";
+import PropTypes from "prop-types";
 
 export default function EventDialog({ showDialog, xPos, yPos, onSubmit }) {
   const [hours, setHours] = useState(null);
@@ -34,9 +35,16 @@ export default function EventDialog({ showDialog, xPos, yPos, onSubmit }) {
   }
 
   return (
-    <styled.Dialog showDialog={showDialog} xPos={xPos} yPos={yPos}>
+    <styled.Dialog
+      showDialog={showDialog}
+      xPos={xPos}
+      yPos={yPos}
+      data-testid="event-dialog"
+    >
       <form onSubmit={event => handleSubmit(event)}>
-        <styled.ErrorMessage>{errorMessage}</styled.ErrorMessage>
+        <styled.ErrorMessage data-testid="error-message">
+          {errorMessage}
+        </styled.ErrorMessage>
         <div>
           <styled.NarrowInput
             type="text"
@@ -64,3 +72,10 @@ export default function EventDialog({ showDialog, xPos, yPos, onSubmit }) {
     </styled.Dialog>
   );
 }
+
+EventDialog.propTypes = {
+  showDialog: PropTypes.bool,
+  xPos: PropTypes.number,
+  yPos: PropTypes.number,
+  onSubmit: PropTypes.func
+};
