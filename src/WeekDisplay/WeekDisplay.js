@@ -1,6 +1,6 @@
 import React from "react";
-import * as styles from "./styles";
 import PropTypes from "prop-types";
+import * as styles from "./styles";
 
 export default function WeekDisplay({ week, month, year, onClick }) {
   const today = new Date();

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import WeekDisplay from "../WeekDisplay/WeekDisplay";
 import * as styled from "./styles";
 
@@ -58,3 +59,9 @@ export default function DayPicker({ month, year, onClick }) {
     </styled.CalendarMonth>
   );
 }
+
+DayPicker.propTypes = {
+  month: PropTypes.number,
+  year: PropTypes.number,
+  onClick: PropTypes.func
+};

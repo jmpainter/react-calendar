@@ -1,17 +1,27 @@
 import React from "react";
+import PropTypes from "prop-types";
 import * as styles from "./styles";
 import { getMonth } from "../utils";
-import PropTypes from "prop-types";
 
 export default function MonthPicker({ month, year, onMonthChange }) {
   return (
     <styles.Picker>
-      <styles.Arrow onClick={() => onMonthChange(false)}>{"<"}</styles.Arrow>
+      <styles.Arrow
+        data-testid="previous-month"
+        onClick={() => onMonthChange(false)}
+      >
+        {"<"}
+      </styles.Arrow>
       <div>
         <styles.Month>{getMonth(month)}</styles.Month>
         <styles.Year>{year}</styles.Year>
       </div>
-      <styles.Arrow onClick={() => onMonthChange(true)}>{">"}</styles.Arrow>
+      <styles.Arrow
+        data-testid="next-month"
+        onClick={() => onMonthChange(true)}
+      >
+        {">"}
+      </styles.Arrow>
     </styles.Picker>
   );
 }

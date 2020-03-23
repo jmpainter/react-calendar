@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import * as styled from "./styles";
 import PropTypes from "prop-types";
+import * as styled from "./styles";
 
 export default function EventDialog({ showDialog, xPos, yPos, onSubmit }) {
   const [hours, setHours] = useState(null);

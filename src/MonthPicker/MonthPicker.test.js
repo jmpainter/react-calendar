@@ -21,21 +21,21 @@ describe("<MonthPicker /> tests", () => {
 
   test("calls onMonthChange when right arrow is clicked", () => {
     const func = jest.fn(() => {});
-    const { getByText } = render(
+    const { getByTestId } = render(
       <MonthPicker month={0} year={2020} onMonthChange={func} />
     );
-    const rightArrow = getByText(/>/);
-    fireEvent.click(rightArrow);
+    const nextMonth = getByTestId("next-month");
+    fireEvent.click(nextMonth);
     expect(func).toHaveBeenCalled();
   });
 
   test("calls onMonthChange when left arrow is clicked", () => {
     const func = jest.fn(() => {});
-    const { getByText } = render(
+    const { getByTestId } = render(
       <MonthPicker month={0} year={2020} onMonthChange={func} />
     );
-    const leftArrow = getByText(/</);
-    fireEvent.click(leftArrow);
+    const previousMonth = getByTestId("previous-month");
+    fireEvent.click(previousMonth);
     expect(func).toHaveBeenCalled();
   });
 });

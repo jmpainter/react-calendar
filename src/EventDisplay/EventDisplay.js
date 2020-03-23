@@ -1,13 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { getMonth } from "../utils";
 import * as styles from "./styles";
-import PropTypes from "prop-types";
 
 export default function EventDisplay({ events }) {
   events = events.sort((a, b) => a.eventDate - b.eventDate);
   return (
     <div>
-      <styles.EventList>
+      <styles.EventList data-testid="event-list">
         {events.map((event, index) => {
           const { eventDate, eventName } = event;
           return (
